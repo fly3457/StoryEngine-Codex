@@ -145,5 +145,6 @@ reader-sim 不主动读隐藏状态，但同一会话先前的作者上下文无
 本次只提供最小状态示例，不执行万字端到端创作，也不自动运行独立评分审计。
 
 迁移细节见 [source inventory](docs/source-inventory.md)、[parity matrix](docs/parity-matrix.md)
-与 [port notes](docs/codex-port-notes.md)。不引入 TIDARC、数据库、RAG、多 Agent、Web UI、
+与 [port notes](docs/codex-port-notes.md)；实际验收结果见 [v1 交付报告](docs/implementation-report.md)。
+不引入 TIDARC、数据库、RAG、多 Agent、Web UI、
 API Server 或世界模拟架构；后续实验只在获得新的任务指令后进行。
