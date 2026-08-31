@@ -1,0 +1,21 @@
+{
+  "name": "storyengine-codex",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A faithful Codex-native port of StoryEngine_Template.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.cjs",
+    "test:contracts": "node --test tests/test_structure.test.cjs tests/test_required_files.test.cjs tests/test_workflow_contract.test.cjs tests/test_independence.test.cjs",
+    "export:docx": "node build-docx.js"
+  },
+  "dependencies": {
+    "docx": "9.7.1"
+  },
+  "devDependencies": {
+    "jszip": "3.10.1"
+  }
+}

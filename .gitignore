@@ -1,0 +1,7 @@
+/StoryEngine-Codex-Prompts-v1/
+/StoryEngine-Codex-Prompts-v1.zip
+/node_modules/
+/.tmp/
+/manuscript.md
+/*.docx
+npm-debug.log*
