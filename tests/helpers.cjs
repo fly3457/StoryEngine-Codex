@@ -83,12 +83,16 @@ function runBash(root, script, args = [], options = {}) {
   // fixture explicitly inside Bash so MSYS performs the path conversion itself.
   const shellRoot = bashPath(root);
   const argv = options.pathPrefix
-    ? ['-c', 'cd -- "$1"; PATH="$2:$PATH"; shift 2; exec bash "$@"',
+    ? ['-c', 'cd -- "$1" || exit; PATH="$2:$PATH"; shift 2; exec bash "$@"',
       'storyengine-test', shellRoot, bashPath(options.pathPrefix), relative, ...args]
-    : ['-c', 'cd -- "$1"; shift; exec bash "$@"', 'storyengine-test', shellRoot, relative, ...args];
+    : ['-c', 'cd -- "$1" || exit; shift; exec bash "$@"', 'storyengine-test', shellRoot, relative, ...args];
   return spawnSync(findBash(), argv, {
     cwd: ROOT, encoding: 'utf8', timeout: 20000,
-    env: { ...process.env, ...options.env },
+    env: {
+      ...process.env,
+      ...(process.platform === 'win32' ? { LANG: 'en_US.UTF-8', LC_ALL: 'en_US.UTF-8' } : {}),
+      ...options.env,
+    },
   });
 }
 function runExporter(root, cwd = root) {
