@@ -69,4 +69,3 @@ npm run test:contracts
 - 不在本次范围内的内容。
 
 提交贡献即表示你有权提交这些内容，并同意按本项目的 [MIT License](LICENSE) 授权发布。
-

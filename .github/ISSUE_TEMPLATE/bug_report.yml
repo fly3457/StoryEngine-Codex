@@ -52,4 +52,3 @@ body:
           required: true
         - label: This is not an undisclosed security vulnerability. / 这不是尚未公开修复的安全漏洞。
           required: true
-

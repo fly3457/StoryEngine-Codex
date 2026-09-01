@@ -35,4 +35,3 @@ body:
           required: true
         - label: I understand that major v1 scope changes need prior maintainer agreement. / 我理解 v1 的重大范围变化需要先取得维护者共识。
           required: true
-

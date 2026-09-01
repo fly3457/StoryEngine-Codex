@@ -37,4 +37,3 @@ Literary quality, model hallucinations, prompt preferences, and ordinary feature
 requests are not security vulnerabilities and may use a normal issue. If a report
 involves private or copyrighted manuscript material, remove the prose and personal
 information and provide only the smallest useful reproduction.
-

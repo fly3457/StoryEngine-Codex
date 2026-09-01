@@ -81,4 +81,3 @@ Keep each pull request focused on one topic. Include:
 
 By contributing, you confirm that you have the right to submit the material and agree
 to license the contribution under this project's [MIT License](LICENSE).
-
