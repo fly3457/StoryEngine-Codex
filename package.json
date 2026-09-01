@@ -4,6 +4,21 @@
   "private": true,
   "description": "A faithful Codex-native port of StoryEngine_Template.",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fly3457/StoryEngine-Codex.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fly3457/StoryEngine-Codex/issues"
+  },
+  "homepage": "https://github.com/fly3457/StoryEngine-Codex#readme",
+  "keywords": [
+    "codex",
+    "creative-writing",
+    "fiction-writing",
+    "storytelling",
+    "writing-workflow"
+  ],
   "engines": {
     "node": ">=22"
   },

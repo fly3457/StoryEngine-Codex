@@ -1,0 +1,38 @@
+name: Feature request / 功能建议
+description: Propose a focused improvement to StoryEngine-Codex. / 提议一项聚焦的 StoryEngine-Codex 改进。
+title: "[Feature] "
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem / 要解决的问题
+      description: Describe the user need before proposing an implementation. / 请先描述用户需求，再提出实现方案。
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change / 建议改动
+      description: Explain the smallest useful change. / 说明最小可用改动。
+    validations:
+      required: true
+  - type: textarea
+    id: compatibility
+    attributes:
+      label: Workflow and compatibility impact / 工作流与兼容性影响
+      description: Note effects on the eight phases, Review Gates, existing stories, scripts, or exports. / 说明对八阶段、Review Gate、已有故事、脚本或导出的影响。
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives / 替代方案
+      description: What other approaches did you consider? / 你还考虑过哪些方案？
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks / 确认事项
+      options:
+        - label: I searched existing issues and discussions. / 我已搜索现有 Issue 和 Discussion。
+          required: true
+        - label: I understand that major v1 scope changes need prior maintainer agreement. / 我理解 v1 的重大范围变化需要先取得维护者共识。
+          required: true
+

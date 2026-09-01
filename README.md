@@ -1,6 +1,12 @@
 # StoryEngine-Codex
 
-A Codex-native port of StoryEngine_Template.
+[简体中文](README.md) | [English](README.en.md)
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Node.js 22+](https://img.shields.io/badge/Node.js-22%2B-339933.svg)](package.json)
+[![CI](https://github.com/fly3457/StoryEngine-Codex/actions/workflows/ci.yml/badge.svg)](https://github.com/fly3457/StoryEngine-Codex/actions/workflows/ci.yml)
+
+StoryEngine_Template 的 Codex 原生移植版。
 
 这是一个把 Codex 当作叙事架构师、作者、编辑和连续性管理者的文件式小说工作流，
 用于验证 Agentic + File-based State 是否能够支持持续的长篇创作。它不是调用
@@ -20,16 +26,16 @@ Copyright (c) 2026 brian-caylor；见 [LICENSE](LICENSE)。这是独立 Port，�
 
 ## 快速开始
 
-1. 克隆自己的 StoryEngine-Codex 仓库，或使用完整的本地副本。本版只建立本地 Git 仓库，
-   没有为你创建远程 URL；下方占位符应替换成你后来创建的仓库地址。
-2. 在 Codex 中打开这个仓库的根目录。
+1. 在 GitHub 上点击 **Use this template**，为每一部小说创建一个独立仓库。未公开的小说应选择
+   Private；也可以 Fork 本仓库参与引擎开发。
+2. 克隆你刚创建的故事仓库，并在 Codex 中打开仓库根目录。
 3. 告诉 Codex：**“我想写一个关于……的故事，请按 StoryEngine 工作流开始。”**
 4. Codex 读取根目录的 [AGENTS.md](AGENTS.md)，进入 Conception。
 5. 审阅各阶段文件后继续；批准记录和当前阶段会写入项目文件。
 
 ```bash
-git clone <YOUR_REPOSITORY_URL> StoryEngine-Codex
-cd StoryEngine-Codex
+git clone https://github.com/<你的账号>/<你的故事仓库>.git my-story
+cd my-story
 # 可选：设置空白模板的书名，不会批准任何阶段
 bash scripts/init-project.sh "你的故事标题"
 
@@ -160,9 +166,27 @@ Node 内置测试验证目录、Prompt、八阶段、读写契约、Review、授
 
 这些测试不能证明模型每次都真实执行了全部读取，也不能证明小说质量或长期文风稳定。
 reader-sim 不主动读隐藏状态，但同一会话先前的作者上下文无法真正清除；不能称为严格盲测。
-本次只提供最小状态示例，不执行万字端到端创作，也不自动运行独立评分审计。
+仓库包含最小状态示例和存档的端到端验证产物；常规测试不会现场生成长篇小说，
+这些示例也不等同于独立的文学质量评审。
 
 迁移细节见 [source inventory](docs/source-inventory.md)、[parity matrix](docs/parity-matrix.md)
 与 [port notes](docs/codex-port-notes.md)；实际验收结果见 [v1 交付报告](docs/implementation-report.md)。
 不引入 TIDARC、数据库、RAG、多 Agent、Web UI、
 API Server 或世界模拟架构；后续实验只在获得新的任务指令后进行。
+
+## 参与开源项目
+
+- 提交问题或代码前请阅读[贡献指南](CONTRIBUTING.md)；英文版见
+  [Contributing Guide](CONTRIBUTING.en.md)。
+- 社区互动遵守[行为准则](CODE_OF_CONDUCT.md)；英文版见
+  [Code of Conduct](CODE_OF_CONDUCT.en.md)。
+- 安全问题请按[安全政策](SECURITY.md)私下报告；英文版见
+  [Security Policy](SECURITY.en.md)。不要在公开 Issue 中披露未修复漏洞。
+- 来源、署名和独立 Port 声明见 [NOTICE.md](NOTICE.md)。
+
+## 许可证与故事版权
+
+项目代码、工作流文档和模板按 [MIT License](LICENSE) 发布；
+[中文译文](LICENSE.zh-CN.md)仅供理解，法律效力以英文原文为准。
+使用本模板创作的新小说文本默认仍由其作者持有版权，除非作者另行授权。
+如果你的故事不准备公开，请用本模板创建 Private 仓库，不要直接把正文提交到本公共仓库。

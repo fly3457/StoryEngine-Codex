@@ -7,7 +7,12 @@ const { ROOT, read, listFiles } = require('./helpers.cjs');
 const { PROMPTS } = require('./contracts.cjs');
 
 test('required protocols, state templates, scripts and delivery documents are present', () => {
-  const files = ['AGENTS.md', 'README.md', 'LICENSE', 'PROJECT.md', 'package.json', 'package-lock.json', 'build-docx.js',
+  const files = ['AGENTS.md', 'README.md', 'README.en.md', 'LICENSE', 'LICENSE.zh-CN.md', 'NOTICE.md',
+    'CONTRIBUTING.md', 'CONTRIBUTING.en.md', 'SECURITY.md', 'SECURITY.en.md',
+    'CODE_OF_CONDUCT.md', 'CODE_OF_CONDUCT.en.md', 'PROJECT.md', 'package.json', 'package-lock.json', 'build-docx.js',
+    '.github/workflows/ci.yml', '.github/ISSUE_TEMPLATE/config.yml',
+    '.github/ISSUE_TEMPLATE/bug_report.yml', '.github/ISSUE_TEMPLATE/feature_request.yml',
+    '.github/pull_request_template.md', 'examples/minimal-story/README.en.md',
     ...['architecture', 'workflow', 'state-model', 'source-inventory', 'parity-matrix', 'codex-port-notes'].map(n => 'docs/' + n + '.md'),
     ...['setting', 'rules', 'timeline', 'locations'].map(n => 'world/' + n + '.md'),
     'characters/_TEMPLATE.md', 'characters/cast.md', 'outline/structure.md', 'outline/scenes/_TEMPLATE.md',
@@ -18,6 +23,25 @@ test('required protocols, state templates, scripts and delivery documents are pr
     ...['init-project', 'compile-manuscript', 'word-count', 'continuity-snapshot'].map(n => 'scripts/' + n + '.sh'),
     'scripts/init-from-seed.cjs'];
   for (const file of files) assert.ok(read(file).trim().length > 0, file);
+});
+test('public project guidance is bilingual and points to the public repository', () => {
+  const pairs = [
+    ['README.md', 'README.en.md'],
+    ['CONTRIBUTING.md', 'CONTRIBUTING.en.md'],
+    ['SECURITY.md', 'SECURITY.en.md'],
+    ['CODE_OF_CONDUCT.md', 'CODE_OF_CONDUCT.en.md'],
+  ];
+  for (const [chinese, english] of pairs) {
+    assert.match(read(chinese), new RegExp(english.replaceAll('.', '\\.')));
+    assert.match(read(english), new RegExp(chinese.replaceAll('.', '\\.')));
+  }
+  assert.match(read('NOTICE.md'), /## English/);
+  assert.match(read('NOTICE.md'), /## 简体中文/);
+  assert.match(read('LICENSE.zh-CN.md'), /以.*LICENSE.*英文原文为准/);
+  const pkg = JSON.parse(read('package.json'));
+  assert.equal(pkg.private, true, 'prevent accidental npm publication');
+  assert.equal(pkg.repository.url, 'git+https://github.com/fly3457/StoryEngine-Codex.git');
+  assert.equal(pkg.bugs.url, 'https://github.com/fly3457/StoryEngine-Codex/issues');
 });
 test('MIT license and both original reusable templates match upstream Git blobs exactly', () => {
   const expected = {

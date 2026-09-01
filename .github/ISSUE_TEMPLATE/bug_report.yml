@@ -1,0 +1,55 @@
+name: Bug report / 缺陷报告
+description: Report a reproducible defect in the workflow, scripts, export, or tests. / 报告可复现的工作流、脚本、导出或测试缺陷。
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. Remove private manuscript text and credentials before submitting.
+        感谢反馈。提交前请删除私人手稿内容和所有凭据。
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary / 问题摘要
+      description: What happened, and what did you expect? / 实际发生了什么？预期结果是什么？
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction / 复现步骤
+      description: Provide the smallest safe sequence that reproduces the problem. / 请提供能够复现问题的最小且安全的步骤。
+      placeholder: |
+        1. Run ...
+        2. Ask Codex to ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: input
+    id: commit
+    attributes:
+      label: Version or commit / 版本或提交
+      placeholder: main at abc1234
+  - type: input
+    id: environment
+    attributes:
+      label: Environment / 环境
+      placeholder: Windows 11, Node 22, Git Bash 2.x, Codex desktop
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Logs or evidence / 日志或证据
+      description: Redact tokens, paths, personal data, and unpublished prose. / 请遮蔽令牌、私人路径、个人信息和未公开正文。
+      render: shell
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks / 确认事项
+      options:
+        - label: I searched existing issues. / 我已搜索现有 Issue。
+          required: true
+        - label: This report contains no secrets or private manuscript text. / 本报告不包含密钥或私人手稿正文。
+          required: true
+        - label: This is not an undisclosed security vulnerability. / 这不是尚未公开修复的安全漏洞。
+          required: true
+
