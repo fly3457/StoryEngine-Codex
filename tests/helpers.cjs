@@ -78,11 +78,16 @@ function bashPath(value) {
 }
 function runBash(root, script, args = [], options = {}) {
   const relative = 'scripts/' + script;
+  // Git Bash can lose a non-ASCII Windows working directory during process startup
+  // on otherwise-English runners. Start from the ASCII checkout, then enter the
+  // fixture explicitly inside Bash so MSYS performs the path conversion itself.
+  const shellRoot = bashPath(root);
   const argv = options.pathPrefix
-    ? ['-c', 'PATH="$1:$PATH"; shift; exec bash "$@"', 'storyengine-test', bashPath(options.pathPrefix), relative, ...args]
-    : [relative, ...args];
+    ? ['-c', 'cd -- "$1"; PATH="$2:$PATH"; shift 2; exec bash "$@"',
+      'storyengine-test', shellRoot, bashPath(options.pathPrefix), relative, ...args]
+    : ['-c', 'cd -- "$1"; shift; exec bash "$@"', 'storyengine-test', shellRoot, relative, ...args];
   return spawnSync(findBash(), argv, {
-    cwd: root, encoding: 'utf8', timeout: 20000,
+    cwd: ROOT, encoding: 'utf8', timeout: 20000,
     env: { ...process.env, ...options.env },
   });
 }
