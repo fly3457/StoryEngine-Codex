@@ -78,16 +78,24 @@ function bashPath(value) {
 }
 function runBash(root, script, args = [], options = {}) {
   const relative = 'scripts/' + script;
-  // Git Bash can lose a non-ASCII Windows working directory during process startup
-  // on otherwise-English runners. Start from the ASCII checkout, then enter the
-  // fixture explicitly inside Bash so MSYS performs the path conversion itself.
-  const shellRoot = bashPath(root);
-  const argv = options.pathPrefix
-    ? ['-c', 'cd -- "$1" || exit; PATH="$2:$PATH"; shift 2; exec bash "$@"',
-      'storyengine-test', shellRoot, bashPath(options.pathPrefix), relative, ...args]
-    : ['-c', 'cd -- "$1" || exit; shift; exec bash "$@"', 'storyengine-test', shellRoot, relative, ...args];
-  return spawnSync(findBash(), argv, {
+  // Git Bash on an otherwise-English Windows runner can lose non-ASCII text while
+  // decoding its native command line. Keep argv ASCII-only and stream every path and
+  // script argument as NUL-delimited UTF-8 after Bash has initialized its locale.
+  const payload = [bashPath(root), options.pathPrefix ? bashPath(options.pathPrefix) : '', relative, ...args]
+    .join('\0') + '\0';
+  const command = [
+    "IFS= read -r -d '' story_root || exit 64",
+    "IFS= read -r -d '' path_prefix || exit 64",
+    "IFS= read -r -d '' story_script || exit 64",
+    'story_args=()',
+    "while IFS= read -r -d '' story_arg; do story_args+=(\"$story_arg\"); done",
+    'cd -- "$story_root" || exit',
+    '[ -z "$path_prefix" ] || export PATH="$path_prefix:$PATH"',
+    'exec bash "$story_script" "${story_args[@]}"',
+  ].join('; ');
+  return spawnSync(findBash(), ['-c', command], {
     cwd: ROOT, encoding: 'utf8', timeout: 20000,
+    input: Buffer.from(payload, 'utf8'),
     env: {
       ...process.env,
       ...(process.platform === 'win32' ? { LANG: 'en_US.UTF-8', LC_ALL: 'en_US.UTF-8' } : {}),
