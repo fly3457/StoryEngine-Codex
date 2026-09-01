@@ -2,7 +2,7 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
-const { ROOT, read, write, tempProject, runBash, success, projectTitle, fixedDate } = require('./helpers.cjs');
+const { ROOT, read, write, listFiles, tempProject, runBash, success, projectTitle, fixedDate } = require('./helpers.cjs');
 const { blankProject, blankAct } = require('./fixtures.cjs');
 
 const continuityFiles = ['tracker', 'threads', 'changelog'].map(n => 'continuity/' + n + '.md');
@@ -211,10 +211,16 @@ test('snapshot preflight fails without leaving partial backups when a source is 
 
 test('utilities also work from a story path with spaces and non-ASCII characters', t => {
   const container = tempProject(t);
+  const files = listFiles(container);
   const root = path.join(container, '故事 with spaces');
   fs.mkdirSync(root);
-  for (const name of ['PROJECT.md', 'scripts', 'world', 'characters', 'outline', 'continuity', 'style', 'drafts']) {
-    fs.cpSync(path.join(container, name), path.join(root, name), { recursive: true });
+  // Node 22 on a Windows runner can incompletely copy sibling directories into a
+  // nested non-ASCII destination with fs.cpSync. Copy the pre-enumerated fixture
+  // files individually so the test exercises the utilities, not that Node quirk.
+  for (const file of files) {
+    const target = path.join(root, file);
+    fs.mkdirSync(path.dirname(target), { recursive: true });
+    fs.copyFileSync(path.join(container, file), target);
   }
   success(runBash(root, 'init-project.sh', ['Path Fixture']));
   seedChapters(root);
