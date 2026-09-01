@@ -91,6 +91,7 @@ function runBash(root, script, args = [], options = {}) {
     "while IFS= read -r -d '' story_arg; do story_args+=(\"$story_arg\"); done",
     'cd -- "$story_root" || exit',
     '[ -z "$path_prefix" ] || export PATH="$path_prefix:$PATH"',
+    'if [ ! -f "$story_script" ]; then printf "requested root: %q\\nlogical cwd: " "$story_root" >&2; pwd >&2; printf "windows cwd: " >&2; pwd -W >&2; locale >&2; ls -lab >&2; exit 127; fi',
     'exec bash "$story_script" "${story_args[@]}"',
   ].join('; ');
   return spawnSync(findBash(), ['-c', command], {
