@@ -3,6 +3,20 @@
 Read the matched task prompt before performing story work. State ownership is in
 [state-model](state-model.md); the four invariants are in [architecture](architecture.md).
 
+## Optional seeded startup
+
+From a complete fresh story root, `npm run init:seed -- <seed-directory>` validates
+the supported seed package and creates only `STORY_SEED.md`. It does not populate or
+approve PROJECT, world, characters, outline, style, prose, or continuity state. An
+identical rerun is a no-op; a different existing dossier is never overwritten.
+
+The dossier is durable user input, not a Canon owner or approval ledger. Phase 1–4
+read and translate its relevant sections into the existing files while keeping every
+normal Review Gate. Phase 5 and later rely only on the standard approved project files.
+Seeded startup is not a ninth phase, a simulation runtime, or authority to auto-approve
+normal projects. A test may automate Gates only when the user explicitly grants that
+scope and the fixture records it.
+
 ## Eight phases
 
 | Phase | Name | Trigger and required work | Review Gate |

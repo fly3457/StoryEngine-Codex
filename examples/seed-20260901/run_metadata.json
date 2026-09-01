@@ -1,0 +1,30 @@
+{
+  "agent_state_hash": "9ebbb7927a28898f670ee936f4588a742d44c8cfa2f69e36ac7f41ce89fb8dac",
+  "blueprint_hash": "89d629fb5e2281fd3d45acefe5c518d39aaddb1e7c6a51f01321776255157b96",
+  "created_at": "2026-08-30T17:32:34+00:00",
+  "manifest_hash": "a2d43128962b63018ce3efbaffecfabab962e10cd8733d1152425fe4468f7eee",
+  "reconstruction": {
+    "legacy_payload": {
+      "agent_legacy": [],
+      "notes": "LegacyPayload 遗产载荷样例，仅用于验证 NextRunBuilder 下一轮构造链；本样例未启用 Reincarnation 转生。",
+      "outcome": "example_only",
+      "payload_version": "0.1",
+      "source_run_id": "gray-harbor-v030",
+      "world_legacy": {
+        "institutional_lessons": [
+          "公开审计机制被证明可以降低长期合法性风险"
+        ],
+        "persistent_marks": []
+      }
+    },
+    "mode": "rerun",
+    "previous_manifest_hash": "0cb7d4fd99863cc1192b92022f95b7668a4a1a3c15eb2a4ad6ebbdc622bb718e",
+    "previous_run_id": "gray-harbor-v030",
+    "seed_policy": "new_seed"
+  },
+  "root_seed": "20260901",
+  "run_config_hash": "0e6994442c53ff4f01661037b191b15972e5256fc8179a69cb555e5cef17ba63",
+  "run_id": "gray-harbor-rerun-20260901",
+  "tool_version": "0.3.0",
+  "world_state_hash": "d7c976658f351f601d96853afc689ede95bdc42aebefa7ef2d647abceab00f74"
+}

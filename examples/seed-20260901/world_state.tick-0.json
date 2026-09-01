@@ -1,0 +1,310 @@
+{
+  "blueprint_ref": {
+    "hash": "89d629fb5e2281fd3d45acefe5c518d39aaddb1e7c6a51f01321776255157b96",
+    "id": "gray_harbor",
+    "schema_version": "0.3",
+    "version": "0.3.0"
+  },
+  "entities": {
+    "clinic": {
+      "description": "唯一具备复杂手术和药品储藏能力的诊所。",
+      "entity_type": "location",
+      "id": "clinic",
+      "name": "灰港诊所",
+      "parent_id": "gray_harbor",
+      "properties": {}
+    },
+    "council_hall": {
+      "description": "行政、档案与配给决策中心。",
+      "entity_type": "location",
+      "id": "council_hall",
+      "name": "议事厅",
+      "parent_id": "gray_harbor",
+      "properties": {}
+    },
+    "deep_mine": {
+      "description": "地质状况已经明显恶化的深层矿区。",
+      "entity_type": "location",
+      "id": "deep_mine",
+      "name": "深层矿井",
+      "parent_id": "mine_district",
+      "properties": {}
+    },
+    "doctor_xu": {
+      "biography_fact_ids": [
+        "fact_chen_saved_clinic",
+        "fact_xu_triage_winter"
+      ],
+      "capabilities": [
+        "medicine",
+        "triage",
+        "evidence_testing",
+        "cross_faction_access"
+      ],
+      "entity_type": "character",
+      "faction_id": "tide_sanctuary",
+      "id": "doctor_xu",
+      "identity": "灰港唯一能独立完成复杂手术的医生，可跨多个阵营行动。",
+      "location_id": "clinic",
+      "name": "徐澄",
+      "occupation": "doctor",
+      "properties": {
+        "health": 73,
+        "money": 55,
+        "status": "alive"
+      }
+    },
+    "engineer_lin": {
+      "biography_fact_ids": [
+        "fact_lin_mine_discovery"
+      ],
+      "capabilities": [
+        "engineering",
+        "risk_assessment",
+        "technical_evidence"
+      ],
+      "entity_type": "character",
+      "faction_id": "miners_guild",
+      "id": "engineer_lin",
+      "identity": "灰港总工程师，负责矿井安全、产量报告和结构评估。",
+      "location_id": "deep_mine",
+      "name": "林栖",
+      "occupation": "chief_engineer",
+      "properties": {
+        "health": 76,
+        "money": 90,
+        "status": "alive"
+      }
+    },
+    "gray_harbor": {
+      "description": "依靠煤矿与港口转运维持的封闭港镇。",
+      "entity_type": "settlement",
+      "id": "gray_harbor",
+      "name": "灰港镇",
+      "parent_id": "gray_harbor_world",
+      "properties": {}
+    },
+    "gray_harbor_world": {
+      "description": "被严冬交通条件逐步隔绝的北方沿海区域。",
+      "entity_type": "world",
+      "id": "gray_harbor_world",
+      "name": "灰港世界",
+      "parent_id": null,
+      "properties": {}
+    },
+    "harbor_population": {
+      "entity_type": "aggregate_population",
+      "id": "harbor_population",
+      "location_id": "gray_harbor",
+      "population": 4321,
+      "properties": {
+        "public_fear": 0.31
+      }
+    },
+    "mayor_zhou": {
+      "biography_fact_ids": [
+        "fact_mayor_relief_decision"
+      ],
+      "capabilities": [
+        "negotiation",
+        "administration",
+        "permit_control"
+      ],
+      "entity_type": "character",
+      "faction_id": "town_council",
+      "id": "mayor_zhou",
+      "identity": "灰港市长兼议事会主持人，擅长维持脆弱联盟。",
+      "location_id": "council_hall",
+      "name": "周砺",
+      "occupation": "mayor",
+      "properties": {
+        "health": 82,
+        "money": 140,
+        "status": "alive"
+      }
+    },
+    "mine_district": {
+      "description": "矿工家庭与矿井入口所在区域。",
+      "entity_type": "location",
+      "id": "mine_district",
+      "name": "矿工区",
+      "parent_id": "gray_harbor",
+      "properties": {}
+    },
+    "miners_guild": {
+      "entity_type": "faction",
+      "id": "miners_guild",
+      "identity": "由矿工家庭、维修工和仓库人员组成的互助与谈判组织。",
+      "name": "矿工互助会",
+      "objectives": [
+        "保护矿工家庭",
+        "避免无补偿停矿"
+      ],
+      "properties": {},
+      "resources": [
+        "labor",
+        "mine_knowledge",
+        "solidarity"
+      ]
+    },
+    "night_tide_network": {
+      "entity_type": "faction",
+      "id": "night_tide_network",
+      "identity": "利用旧港与私人船只维持非正式贸易的松散网络。",
+      "name": "夜潮网络",
+      "objectives": [
+        "保持隐秘贸易路线",
+        "保护网络成员"
+      ],
+      "properties": {},
+      "resources": [
+        "boats",
+        "contacts",
+        "covert_trade"
+      ]
+    },
+    "old_port": {
+      "description": "正式贸易与夜间非正式交易交叠的港区。",
+      "entity_type": "location",
+      "id": "old_port",
+      "name": "旧港区",
+      "parent_id": "gray_harbor",
+      "properties": {}
+    },
+    "smuggler_chen": {
+      "biography_fact_ids": [
+        "fact_mayor_relief_decision",
+        "fact_chen_saved_clinic"
+      ],
+      "capabilities": [
+        "covert_trade",
+        "route_knowledge",
+        "bargaining"
+      ],
+      "entity_type": "character",
+      "faction_id": "night_tide_network",
+      "id": "smuggler_chen",
+      "identity": "夜潮网络主要协调者，熟悉港区、外部联系人和非正式贸易。",
+      "location_id": "old_port",
+      "name": "陈默潮",
+      "occupation": "network_coordinator",
+      "properties": {
+        "health": 88,
+        "money": 210,
+        "status": "alive"
+      }
+    },
+    "tide_sanctuary": {
+      "entity_type": "faction",
+      "id": "tide_sanctuary",
+      "identity": "承担救济、照护和公共调解的地方机构。",
+      "name": "潮汐圣所",
+      "objectives": [
+        "保护弱势居民",
+        "维持公共救济"
+      ],
+      "properties": {},
+      "resources": [
+        "volunteers",
+        "trust",
+        "kitchens"
+      ]
+    },
+    "town_council": {
+      "entity_type": "faction",
+      "id": "town_council",
+      "identity": "维持行政秩序、配给制度与对外信用的正式治理机构。",
+      "name": "灰港议事会",
+      "objectives": [
+        "避免秩序崩溃",
+        "保持配给系统运作"
+      ],
+      "properties": {},
+      "resources": [
+        "records",
+        "permits",
+        "legitimacy"
+      ]
+    }
+  },
+  "globals": {
+    "contaminated_batch_real": true,
+    "council_legitimacy": 0.58,
+    "public_fear": 0.31,
+    "public_order": 0.66,
+    "winter_onset_world_time_seconds": 1819667
+  },
+  "relationships": [
+    {
+      "from": "mayor_zhou",
+      "intensity": 0.42,
+      "to": "engineer_lin",
+      "type": "trusts"
+    },
+    {
+      "from": "doctor_xu",
+      "intensity": 0.64,
+      "to": "smuggler_chen",
+      "type": "owes"
+    }
+  ],
+  "resources": {
+    "coal": {
+      "amount": 410,
+      "unit": "heating_unit"
+    },
+    "food": {
+      "amount": 257,
+      "unit": "ration_crate"
+    },
+    "medicine": {
+      "amount": 48,
+      "unit": "treatment_unit"
+    }
+  },
+  "routes": [
+    {
+      "bidirectional": true,
+      "fixed_at": "AUTHORING",
+      "from": "council_hall",
+      "id": "route_council_port",
+      "to": "old_port",
+      "travel_duration_seconds": 900
+    },
+    {
+      "bidirectional": true,
+      "fixed_at": "AUTHORING",
+      "from": "council_hall",
+      "id": "route_council_mine",
+      "to": "mine_district",
+      "travel_duration_seconds": 1800
+    },
+    {
+      "bidirectional": true,
+      "fixed_at": "AUTHORING",
+      "from": "mine_district",
+      "id": "route_mine_deep",
+      "to": "deep_mine",
+      "travel_duration_seconds": 1200
+    },
+    {
+      "bidirectional": true,
+      "fixed_at": "AUTHORING",
+      "from": "council_hall",
+      "id": "route_council_clinic",
+      "to": "clinic",
+      "travel_duration_seconds": 900
+    },
+    {
+      "bidirectional": true,
+      "fixed_at": "AUTHORING",
+      "from": "old_port",
+      "id": "route_port_clinic",
+      "to": "clinic",
+      "travel_duration_seconds": 1200
+    }
+  ],
+  "run_id": "gray-harbor-rerun-20260901",
+  "tick_id": 0,
+  "world_time_second": 0
+}

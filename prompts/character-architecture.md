@@ -7,8 +7,11 @@ Phase 3 begins when the user approves the world files.
 ### Step 1: Read Context
 
 Read PROJECT.md, all world/ files (including rules and timeline), characters/cast.md,
-characters/_TEMPLATE.md, existing relevant profiles, and continuity/changelog.md.
-Record missing reads; do not rely on chat memory or silently override established facts.
+characters/_TEMPLATE.md, existing relevant profiles, continuity/changelog.md, and
+STORY_SEED.md when it exists. Preserve the seed's fixed identities, character interiors,
+biography facts, subjective memories, and initial knowledge boundaries; fill missing
+StoryEngine profile fields without treating the seed as Gate approval. Record missing
+reads; do not rely on chat memory or silently override established facts.
 
 ### Step 2: Build the Cast
 

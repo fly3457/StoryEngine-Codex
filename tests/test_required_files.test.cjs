@@ -15,7 +15,8 @@ test('required protocols, state templates, scripts and delivery documents are pr
     ...['tracker', 'threads', 'changelog'].map(n => 'continuity/' + n + '.md'),
     ...['voice-guide', 'motifs', 'samples'].map(n => 'style/' + n + '.md'),
     ...PROMPTS.map(n => 'prompts/' + n + '.md'),
-    ...['init-project', 'compile-manuscript', 'word-count', 'continuity-snapshot'].map(n => 'scripts/' + n + '.sh')];
+    ...['init-project', 'compile-manuscript', 'word-count', 'continuity-snapshot'].map(n => 'scripts/' + n + '.sh'),
+    'scripts/init-from-seed.cjs'];
   for (const file of files) assert.ok(read(file).trim().length > 0, file);
 });
 test('MIT license and both original reusable templates match upstream Git blobs exactly', () => {

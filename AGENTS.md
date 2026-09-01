@@ -26,6 +26,10 @@ reader prompt, procedural instructions, and draft chapters as story input.
 | Reader simulation | [reader-review](prompts/reader-review.md) |
 | Revision | [revision-pass](prompts/revision-pass.md) |
 
+Optional seeded startup creates `STORY_SEED.md`. It is user-supplied, unapproved
+source material, not Canon or Gate evidence. Phase 1–4 prompts consume it when
+present; Phase 5 onward uses only the standard files approved by the workflow.
+
 For status, file display, or next, consult [workflow](docs/workflow.md).
 For repository maintenance, consult README and the relevant code/tests instead;
 maintenance authorization does not approve story Canon or advance creative phases.

@@ -1,0 +1,297 @@
+{
+  "blueprint_ref": {
+    "hash": "89d629fb5e2281fd3d45acefe5c518d39aaddb1e7c6a51f01321776255157b96",
+    "id": "gray_harbor",
+    "schema_version": "0.3",
+    "version": "0.3.0"
+  },
+  "fidelity_policy": {
+    "character_role_tiers": [
+      "background",
+      "standard",
+      "core",
+      "temporary_core"
+    ],
+    "mvp_mode": "finite_world"
+  },
+  "lifecycle_policy": {
+    "legacy_memory": {
+      "enabled": false
+    },
+    "reincarnation": {
+      "enabled": false
+    },
+    "rerun": {
+      "enabled": true,
+      "seed_policy": "new_seed"
+    }
+  },
+  "materialization_policy": {
+    "enabled": false,
+    "policy": "post_mvp",
+    "supporting_character_budget": 8
+  },
+  "narrative_field": {
+    "anchors": [
+      {
+        "activation_window": {
+          "end_world_time_seconds": 2592000,
+          "start_world_time_seconds": 1296000
+        },
+        "id": "anchor_winter_shortage",
+        "name": "严冬短缺压力",
+        "pressure_effects": [
+          {
+            "resource_consumption_multiplier": 1.2
+          }
+        ]
+      }
+    ],
+    "conflict_topology": [
+      {
+        "from": "town_council",
+        "id": "conflict_council_mine",
+        "intensity": 0.78,
+        "subject": "煤炭与就业",
+        "to": "miners_guild",
+        "type": "depends_on"
+      },
+      {
+        "from": "town_council",
+        "id": "conflict_council_night",
+        "intensity": 0.72,
+        "subject": "非正式贸易与合法性",
+        "to": "night_tide_network",
+        "type": "distrusts"
+      }
+    ],
+    "end_conditions": [
+      {
+        "classification": "stable_transformation",
+        "id": "ending_stable_reform",
+        "name": "多方改革",
+        "summary": "多方建立新的贸易、配给与监督制度，灰港继续存在。",
+        "when": {
+          "stable_governance": true
+        }
+      },
+      {
+        "classification": "exodus",
+        "id": "ending_orderly_exodus",
+        "name": "有序撤离",
+        "summary": "大多数居民通过组织化撤离保存下来。",
+        "when": {
+          "evacuation_completed_ratio_above": 0.72
+        }
+      },
+      {
+        "classification": "collapse",
+        "id": "ending_collapse",
+        "name": "灰港崩溃",
+        "summary": "灰港失去维持共同体的资源、制度或人口基础。",
+        "when": {
+          "public_order_below": 0.12
+        }
+      }
+    ],
+    "mission_seeds": [
+      {
+        "id": "preserve_or_evacuate_gray_harbor",
+        "mandate": "在严冬封锁前，使灰港形成可持续新秩序，或以可接受代价完成有序撤离。"
+      }
+    ],
+    "pressure_channels": [
+      {
+        "affected_nodes": [
+          "gray_harbor",
+          "old_port",
+          "mine_district",
+          "clinic"
+        ],
+        "critical_threshold": 0.82,
+        "growth": {
+          "per_world_day": 0.015
+        },
+        "id": "resource_pressure",
+        "initial_level": 0.38,
+        "manifestations": [
+          {
+            "id": "resource_pressure_ration_reduction",
+            "when": {
+              "pressure_at_least": 0.6
+            },
+            "world_effects": [
+              {
+                "ration_availability_multiplier": 0.82
+              }
+            ]
+          },
+          {
+            "id": "resource_pressure_market_price",
+            "when": {
+              "pressure_at_least": 0.72
+            },
+            "world_effects": [
+              {
+                "market_food_price_multiplier": 1.25
+              }
+            ]
+          }
+        ],
+        "name": "资源压力",
+        "relief_conditions": [
+          {
+            "food_security_above": 0.68
+          }
+        ]
+      },
+      {
+        "affected_nodes": [
+          "gray_harbor"
+        ],
+        "critical_threshold": 0.74,
+        "growth": {
+          "when_shortage_visible": 0.06
+        },
+        "id": "information_pressure",
+        "initial_level": 0.27,
+        "manifestations": [
+          {
+            "id": "information_pressure_rumor",
+            "when": {
+              "pressure_at_least": 0.55
+            },
+            "world_effects": [
+              {
+                "rumor_event_probability_delta": 0.15
+              }
+            ]
+          }
+        ],
+        "name": "信息压力",
+        "relief_conditions": [
+          {
+            "trusted_shared_facts_established": true
+          }
+        ]
+      },
+      {
+        "affected_nodes": [
+          "council_hall",
+          "gray_harbor"
+        ],
+        "critical_threshold": 0.78,
+        "growth": {
+          "when_secret_exposed": 0.18
+        },
+        "id": "legitimacy_pressure",
+        "initial_level": 0.31,
+        "manifestations": [
+          {
+            "id": "legitimacy_pressure_compliance",
+            "when": {
+              "pressure_at_least": 0.65
+            },
+            "world_effects": [
+              {
+                "public_compliance_multiplier": 0.85
+              }
+            ]
+          }
+        ],
+        "name": "合法性压力",
+        "relief_conditions": [
+          {
+            "credible_public_audit": true
+          }
+        ]
+      }
+    ],
+    "secrets": [
+      {
+        "fixed_at": "AUTHORING",
+        "id": "mine_exhaustion",
+        "initial_knowers": [
+          "engineer_lin"
+        ],
+        "reveal_paths": [
+          "林栖主动提交报告",
+          "其他角色取得真实地质记录"
+        ],
+        "truth": "主矿脉可安全开采的剩余寿命远低于公开报告。"
+      },
+      {
+        "fixed_at": "AUTHORING",
+        "id": "relief_funds_diverted",
+        "initial_knowers": [
+          "mayor_zhou",
+          "smuggler_chen"
+        ],
+        "reveal_paths": [
+          "完整审计议事会账目",
+          "经手人主动披露"
+        ],
+        "truth": "部分救济款被用于没有公开审批的紧急药品采购。"
+      }
+    ],
+    "world_horizon": {
+      "hard_world_time_seconds": 2592000,
+      "soft_world_time_seconds": 2160000
+    }
+  },
+  "ontology": {
+    "entity_types": [
+      "world",
+      "settlement",
+      "location",
+      "character",
+      "faction",
+      "aggregate_population",
+      "resource",
+      "evidence"
+    ],
+    "relation_types": [
+      "contains",
+      "adjacent_to",
+      "member_of",
+      "distrusts",
+      "trusts",
+      "owes",
+      "obligated_to",
+      "depends_on"
+    ]
+  },
+  "root_seed": "20260901",
+  "run_id": "gray-harbor-rerun-20260901",
+  "story_fertility_targets": {
+    "targets": {
+      "minimum_pressure_channels": 3,
+      "minimum_terminal_outcomes": 3
+    },
+    "test_plan": {
+      "mode": "post_mvp_optional"
+    }
+  },
+  "world_laws": {
+    "economy": {
+      "free_resource_creation": false,
+      "resource_conservation": true
+    },
+    "information": {
+      "instant_global_communication": false,
+      "secrets_default_hidden": true
+    },
+    "mortality": {
+      "death_is_canonical": true,
+      "reversible": false
+    },
+    "space": {
+      "movement_requires_route": true,
+      "simultaneous_presence_requires_same_location": true
+    },
+    "time": {
+      "calendar": "gray_harbor_winter_countdown",
+      "world_time_unit": "second"
+    }
+  }
+}

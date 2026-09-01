@@ -8,6 +8,7 @@ example is not an established fact. Never treat an unapproved sample as approved
 
 | State | Canonical file(s) | Meaning |
 |---|---|---|
+| Optional source dossier | STORY_SEED.md | User-supplied, unapproved Phase 1–4 input; not Canon or Gate evidence |
 | Premise, scope, genre, themes | PROJECT.md | User-directed project definition |
 | Phase and completion | PROJECT.md: Current Phase and Status | Actual workflow progress, not inferred approval |
 | World | world/setting.md, rules.md, timeline.md, locations.md | Setting, limits, chronology, and places |
@@ -24,6 +25,9 @@ example is not an established fact. Never treat an unapproved sample as approved
 Use the original Markdown templates. Do not introduce JSON story state, a database,
 or a separate competing approval ledger. Reports are generated when their review
 runs; their absence before a review is normal. Do not ship fictitious clean reports.
+STORY_SEED.md may preserve imported source detail, but adopted facts become durable
+Canon only in their normal owner files after the applicable Review Gate. Drafting and
+review do not consult the seed as a shortcut around those owners.
 
 ## Established Facts
 

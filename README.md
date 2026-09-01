@@ -32,11 +32,27 @@ git clone <YOUR_REPOSITORY_URL> StoryEngine-Codex
 cd StoryEngine-Codex
 # 可选：设置空白模板的书名，不会批准任何阶段
 bash scripts/init-project.sh "你的故事标题"
+
+# 可选的另一种启动方式：从世界/角色 Seed 生成非 Canon 创作档案
+npm run init:seed -- path/to/seed-directory
 ```
 
 无需手动粘贴 SYSTEM_PROMPT，无需更改 Codex 全局配置。AGENTS 按 Codex 的
 [项目指令机制](https://learn.chatgpt.com/docs/agent-configuration/agents-md)加载；
 如果任务在 AGENTS 创建前已打开，可新开一次任务或明确要求重新读取该文件。
+
+### 从 Seed 启动
+
+Seed 启动适用于已经有世界和角色数据、但仍希望完整走八阶段的项目。命令要求
+`compiled_blueprint.json`、`manifest.json`、`validation_report.json`、
+`genesis_validation_report.json` 和 `world_fabric_report.json`，验证成功后只在故事根目录
+创建 `STORY_SEED.md`。它不修改 PROJECT 或 Canon，不勾选状态，也不依赖同目录的
+snapshot、tick state、run config、overview、registry、metadata 或 lock 文件。
+
+相同来源重复执行不会改文件；已有不同 dossier 时会拒绝覆盖。Phase 1–4 把选用内容
+逐步写入原有 Canon 文件并照常等待 Review Gate，Phase 5 起不再把 Seed 当作故事状态。
+导入结果不记录本机绝对路径，原目录移走后仍可仅凭仓库文件继续创作。此入口需要
+Node.js 22+，不改变原 Bash 初始化方式。
 
 ## 八阶段工作流
 
@@ -61,6 +77,7 @@ style/consistency-report.md、drafts/reader-report.md；运行相应 Review 前�
 |---|---|
 | AGENTS.md | 简短的任务导航与核心不变量 |
 | docs/ | 架构、流程、状态责任、源清单与迁移说明 |
+| STORY_SEED.md（可选） | Seed 启动生成的未批准创作输入，仅供 Phase 1–4 转写 |
 | PROJECT.md | 当前故事及其阶段状态 |
 | world/、characters/ | 世界与人物 |
 | outline/、outline/scenes/ | 故事结构与场景卡 |
@@ -106,6 +123,7 @@ bash scripts/word-count.sh
 bash scripts/compile-manuscript.sh
 bash scripts/compile-manuscript.sh "my manuscript.md"
 bash scripts/continuity-snapshot.sh
+npm run init:seed -- path/to/seed-directory
 
 # 可选：安装已锁定的依赖并导出 Word
 npm ci

@@ -7,11 +7,20 @@ const { ROOT, read, listFiles, tempProject, copyRepository, success } = require(
 const { scanIndependence } = require('./contracts.cjs');
 
 test('runtime dependencies, imports and operational paths stay independent', () => {
-  const files = Object.fromEntries(listFiles().map(file => [file, read(file)]));
+  const allFiles = listFiles();
+  const externalSeedInputs = allFiles.filter(file => /^examples\/seed-[^/]+\//.test(file));
+  assert.ok(externalSeedInputs.length > 0, 'seed fixture is available for import tests');
+  assert.ok(externalSeedInputs.every(file => /\.(?:json|txt)$/.test(file)),
+    'external seed fixtures contain inert author data only');
+  const files = Object.fromEntries(allFiles
+    .filter(file => !/^examples\/seed-[^/]+\//.test(file))
+    .map(file => [file, read(file)]));
   assert.deepEqual(scanIndependence(files), []);
   assert.equal(JSON.parse(read('package.json')).dependencies.docx, '9.7.1');
   assert.equal(JSON.parse(read('package.json')).devDependencies.jszip, '3.10.1');
   assert.ok(!listFiles().some(p => p.startsWith('StoryEngine-Codex-Prompts-v1')));
+  assert.doesNotMatch(read('scripts/init-from-seed.cjs'), /examples[\\/]seed-|TIDARC|AgentSoul/,
+    'the importer accepts data by argument and has no external runtime coupling');
 });
 test('independence checker rejects actual coupling without flagging exclusion prose', () => {
   assert.deepEqual(scanIndependence({ 'docs/notes.md': 'TIDARC, RAG and multi-agent reviews are not implemented; deferred only.' }), []);

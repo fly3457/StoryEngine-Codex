@@ -1,0 +1,13 @@
+{
+  "blueprint_hash": "89d629fb5e2281fd3d45acefe5c518d39aaddb1e7c6a51f01321776255157b96",
+  "blueprint_id": "gray_harbor",
+  "blueprint_version": "0.3.0",
+  "generator_versions": {
+    "genesis": "sha256-namespaced-v3"
+  },
+  "lock_version": 2,
+  "schema_hash": "6fb74ecddf23af06223c066d705eee76a2e68aba12154d022d2b8670e9aea0f0",
+  "schema_version": "0.3",
+  "tool": "tidarc-blueprint-tool",
+  "tool_version": "0.3.0"
+}

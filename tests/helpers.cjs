@@ -3,6 +3,7 @@ const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
 const { spawnSync } = require('node:child_process');
+const { blankStoryFiles } = require('./fixtures.cjs');
 
 const ROOT = path.resolve(__dirname, '..');
 const ignored = new Set(['.git', 'node_modules', '.tmp', 'StoryEngine-Codex-Prompts-v1']);
@@ -27,7 +28,7 @@ function listFiles(root = ROOT) {
   visit(root);
   return files.sort();
 }
-function tempProject(t, seed = true) {
+function tempProject(t, seed = true, sourceRoot = ROOT) {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'storyengine-codex-test-'));
   t.after(() => {
     const resolved = path.resolve(dir);
@@ -36,9 +37,12 @@ function tempProject(t, seed = true) {
     fs.rmSync(resolved, { recursive: true, force: true, maxRetries: 3 });
   });
   if (seed) {
-    for (const name of ['PROJECT.md', 'build-docx.js', 'scripts', 'world', 'characters', 'outline', 'continuity', 'style']) {
-      fs.cpSync(path.join(ROOT, name), path.join(dir, name), { recursive: true });
+    // Exercise the current tools/templates without importing mutable story Canon.
+    for (const name of ['build-docx.js', 'scripts', 'characters/_TEMPLATE.md', 'outline/scenes/_TEMPLATE.md']) {
+      fs.mkdirSync(path.dirname(path.join(dir, name)), { recursive: true });
+      fs.cpSync(path.join(sourceRoot, name), path.join(dir, name), { recursive: true });
     }
+    for (const [file, content] of Object.entries(blankStoryFiles())) write(dir, file, content);
     fs.mkdirSync(path.join(dir, 'drafts'), { recursive: true });
   }
   return dir;

@@ -68,7 +68,7 @@
 | audit / voice-check / reader-sim | docs/workflow.md; prompts/ | Preserved | 分别路由三种审阅及其原报告 | 不需要 API 或服务 |
 | next | docs/workflow.md | Adapted | 推进已满足 Gate 的下一阶段或下一章，不自动跳阶段 | 推进和用户确认写入文件；不从工程实施授权推断创作授权 |
 | Git scaffold / empty directories | 根目录、drafts/.gitkeep、三个 Act 文件 | Added | 上游嵌套模板提升到仓库根，提交必需空目录及幕模板 | 独立 clone 后即可使用 |
-| Contract and script tests | tests/ | Added | Node 内置测试、临时夹具、独立性检查与真实 DOCX 检查 | 验证工程契约，不评价小说质量 |
+| Contract and script tests | tests/ | Added | Node 内置测试、临时夹具、独立性检查与真实 DOCX 检查；工具夹具使用固定测试状态，不依赖当前故事仍为空白 | 验证工程契约，不评价小说质量；独立审计修复正常初始化后测试失败的问题 |
 | Minimal example | examples/minimal-story/ | Added | 小型状态实例与一个场景卡，无章节正文 | 验证模板可表达工作流，不等同真实八阶段创作实测 |
 | Dependency manifest | package.json; package-lock.json | Added | 固定 docx 9.7.1；测试不引入框架 | 核心 Codex 写作无需 npm 安装；仅开发测试/可选导出用 Node |
 | Local task materials | 忽略的 Prompt 资料包及 ZIP | Added | 保留原文件，不提交、不依赖、不执行第二或第三项任务 | 用户指定本次只完成第一版 Port |

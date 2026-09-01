@@ -7,8 +7,11 @@ recorded state; if clearly given in the current request, record it without askin
 
 ### Step 1: Read Context
 
-Read PROJECT.md, continuity/changelog.md, and any existing world files. Keep confirmed
-facts; log missing files and unresolved choices before creating their content.
+Read PROJECT.md, continuity/changelog.md, any existing world files, and STORY_SEED.md
+when it exists. Treat the seed's AUTHORING/fixed world facts and rules as binding
+user constraints, its resolved opening values as defaults, and its pressures/outcomes
+as possibilities. The seed itself is not Canon or Gate approval. Keep confirmed facts;
+log missing files and unresolved choices before creating their content.
 
 ### Step 2: Build the World Files
 

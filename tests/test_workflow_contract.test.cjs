@@ -8,6 +8,23 @@ test('workflow defines exactly the original eight ordered phases', () => {
   assert.deepEqual(rows.map(row => Number(row[1])), [1, 2, 3, 4, 5, 6, 7, 8]);
   assert.deepEqual(rows.map(row => row[2].trim()), PHASES);
 });
+test('optional seed startup preserves Canon ownership and every original Gate', () => {
+  const workflow = read('docs/workflow.md');
+  const state = read('docs/state-model.md');
+  const agents = read('AGENTS.md');
+  for (const text of [workflow, state, agents]) {
+    assert.match(text, /STORY_SEED\.md/);
+    assert.match(text, /not Canon|不是 Canon|not a Canon owner/i);
+  }
+  assert.match(workflow, /not a ninth phase/);
+  assert.match(workflow, /does not populate or\napprove PROJECT, world, characters, outline, style, prose, or continuity state/);
+  for (const name of ['conception', 'world-building', 'character-architecture', 'structural-outlining']) {
+    assert.match(read('prompts/' + name + '.md'), /STORY_SEED\.md/, name);
+  }
+  for (const name of ['style-calibration', 'draft-chapter', 'continuity-check', 'voice-check', 'reader-review', 'revision-pass']) {
+    assert.doesNotMatch(read('prompts/' + name + '.md'), /STORY_SEED\.md/, name);
+  }
+});
 test('all first five phase prompts preserve a director Review Gate', () => {
   for (const name of PROMPTS.slice(0, 5)) {
     const text = read('prompts/' + name + '.md');

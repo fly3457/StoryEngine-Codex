@@ -1,0 +1,721 @@
+{
+  "agent_state": {
+    "agents": {
+      "agent_doctor_xu": {
+        "agent_id": "agent_doctor_xu",
+        "agent_soul": {
+          "agent_id": "agent_doctor_xu",
+          "character_id": "doctor_xu",
+          "core_beliefs": [
+            "信息不足时应优先减少不可逆伤害",
+            "阵营身份不应决定紧急救治顺序"
+          ],
+          "core_desires": [
+            "建立不被政治垄断的最低医疗秩序"
+          ],
+          "core_drives": [
+            "维持诊所",
+            "查清药品风险"
+          ],
+          "core_fears": [
+            "再次因为资源不足选择谁应该死",
+            "污染药品造成可避免伤害"
+          ],
+          "core_values": [
+            "生命",
+            "专业诚实",
+            "公平治疗"
+          ],
+          "decision_biases": [
+            "生命风险优先于政治关系",
+            "未确认风险时倾向先检测"
+          ],
+          "deep_attachments": [
+            "诊所患者",
+            "医疗职业伦理"
+          ],
+          "identity_narrative": "我的工作不是选择谁值得活，而是在资源不足时仍尽可能减少不可逆伤害。",
+          "moral_boundaries": [
+            "不故意向患者隐瞒已确认的直接医疗风险"
+          ],
+          "soul_version": 1,
+          "source": "blueprint_agent_soul_seed",
+          "temperament": [
+            "直接",
+            "疲惫",
+            "高责任感"
+          ],
+          "truth_scope": "subjective"
+        },
+        "character_id": "doctor_xu",
+        "dynamic_state": {
+          "activation_plan": null,
+          "agent_memory": [
+            {
+              "access_mode": "participant",
+              "agent_id": "agent_doctor_xu",
+              "character_id": "doctor_xu",
+              "confidence": 1.0,
+              "contradicting_memory_ids": [],
+              "emotional_valence": 0.18,
+              "memory_id": "mem_xu_delivery",
+              "memory_type": "episodic",
+              "salience": 0.82,
+              "source_fact_id": "fact_chen_saved_clinic",
+              "source_record_id": null,
+              "source_secret_id": null,
+              "subjective_content": "我记得夜潮药品曾救过一批患者，因此我欠陈默潮人情，但这不代表下一批药一定安全。",
+              "supporting_memory_ids": [],
+              "truth_scope": "subjective"
+            },
+            {
+              "access_mode": "participant",
+              "agent_id": "agent_doctor_xu",
+              "character_id": "doctor_xu",
+              "confidence": 1.0,
+              "contradicting_memory_ids": [],
+              "emotional_valence": -0.95,
+              "memory_id": "mem_xu_winter_triage",
+              "memory_type": "episodic",
+              "salience": 0.98,
+              "source_fact_id": "fact_xu_triage_winter",
+              "source_record_id": null,
+              "source_secret_id": null,
+              "subjective_content": "上一场严冬我因为药品不足失去了两名原本有机会救治的患者，我不愿再把风险拖到最后一刻。",
+              "supporting_memory_ids": [],
+              "truth_scope": "subjective"
+            }
+          ],
+          "commitment": null,
+          "goals": [],
+          "initial_motivation_seed": [
+            "确认夜潮药品批次是否安全"
+          ],
+          "persistent_emotion": {},
+          "plan": null,
+          "relationship_cognition": {}
+        },
+        "role_tier": "core"
+      },
+      "agent_engineer_lin": {
+        "agent_id": "agent_engineer_lin",
+        "agent_soul": {
+          "agent_id": "agent_engineer_lin",
+          "character_id": "engineer_lin",
+          "core_beliefs": [
+            "技术事实不会因为政治压力消失",
+            "专业判断必须能经受事后追问"
+          ],
+          "core_desires": [
+            "让矿工在真相公开后仍有生计"
+          ],
+          "core_drives": [
+            "阻止重大矿难",
+            "保存完整数据"
+          ],
+          "core_fears": [
+            "自己的沉默造成群死群伤",
+            "家人被卷入报复"
+          ],
+          "core_values": [
+            "事实",
+            "专业责任",
+            "人命"
+          ],
+          "decision_biases": [
+            "面对技术风险时保守",
+            "面对公开冲突时倾向延迟"
+          ],
+          "deep_attachments": [
+            "矿工家庭",
+            "专业声誉"
+          ],
+          "identity_narrative": "我首先是工程师；如果事实被我亲手扭曲，我就失去了存在理由。",
+          "moral_boundaries": [
+            "不伪造安全数据",
+            "不明知危险仍签署安全许可"
+          ],
+          "soul_version": 1,
+          "source": "blueprint_agent_soul_seed",
+          "temperament": [
+            "精确",
+            "内疚",
+            "回避公开冲突"
+          ],
+          "truth_scope": "subjective"
+        },
+        "character_id": "engineer_lin",
+        "dynamic_state": {
+          "activation_plan": null,
+          "agent_memory": [
+            {
+              "access_mode": "participant",
+              "agent_id": "agent_engineer_lin",
+              "character_id": "engineer_lin",
+              "confidence": 1.0,
+              "contradicting_memory_ids": [],
+              "emotional_valence": -0.7,
+              "memory_id": "mem_lin_discovery",
+              "memory_type": "episodic",
+              "salience": 0.96,
+              "source_fact_id": "fact_lin_mine_discovery",
+              "source_record_id": null,
+              "source_secret_id": null,
+              "subjective_content": "我亲手核对了衰减曲线，主矿脉的安全寿命已经不是可以靠乐观估算延长的问题。",
+              "supporting_memory_ids": [],
+              "truth_scope": "subjective"
+            },
+            {
+              "access_mode": "declared_initial_knowledge",
+              "agent_id": "agent_engineer_lin",
+              "character_id": "engineer_lin",
+              "confidence": 1.0,
+              "contradicting_memory_ids": [],
+              "emotional_valence": null,
+              "memory_id": "mem_secret_mine_exhaustion_engineer_lin",
+              "memory_type": "semantic",
+              "salience": 0.9,
+              "source_fact_id": null,
+              "source_record_id": null,
+              "source_secret_id": "mine_exhaustion",
+              "subjective_content": "主矿脉可安全开采的剩余寿命远低于公开报告。",
+              "supporting_memory_ids": [],
+              "truth_scope": "subjective"
+            }
+          ],
+          "commitment": null,
+          "goals": [],
+          "initial_motivation_seed": [
+            "确认最危险巷道是否还能继续工作"
+          ],
+          "persistent_emotion": {},
+          "plan": null,
+          "relationship_cognition": {}
+        },
+        "role_tier": "core"
+      },
+      "agent_mayor_zhou": {
+        "agent_id": "agent_mayor_zhou",
+        "agent_soul": {
+          "agent_id": "agent_mayor_zhou",
+          "character_id": "mayor_zhou",
+          "core_beliefs": [
+            "失控会让脆弱共同体付出比不透明更大的代价",
+            "公共权力必须最终为后果负责"
+          ],
+          "core_desires": [
+            "让灰港在自己任期内活过严冬"
+          ],
+          "core_drives": [
+            "避免集体恐慌",
+            "修补制度合法性"
+          ],
+          "core_fears": [
+            "公共秩序突然崩溃",
+            "自己的隐瞒造成不可逆伤亡"
+          ],
+          "core_values": [
+            "秩序",
+            "灰港存续",
+            "承担公共责任"
+          ],
+          "decision_biases": [
+            "公共风险巨大时偏向渐进披露",
+            "对不可逆制度崩溃高度厌恶"
+          ],
+          "deep_attachments": [
+            "灰港本身",
+            "议事会制度"
+          ],
+          "identity_narrative": "我是负责把一个快要散架的共同体撑住的人，即使有时必须承担难看的决定。",
+          "moral_boundaries": [
+            "不主动牺牲明确无辜者换取政治便利"
+          ],
+          "soul_version": 1,
+          "source": "blueprint_agent_soul_seed",
+          "temperament": [
+            "克制",
+            "善于妥协",
+            "高压力下会控制信息"
+          ],
+          "truth_scope": "subjective"
+        },
+        "character_id": "mayor_zhou",
+        "dynamic_state": {
+          "activation_plan": null,
+          "agent_memory": [
+            {
+              "access_mode": "inferred",
+              "agent_id": "agent_mayor_zhou",
+              "character_id": "mayor_zhou",
+              "confidence": 0.78,
+              "contradicting_memory_ids": [],
+              "emotional_valence": -0.2,
+              "memory_id": "belief_mayor_secret_purchase_necessary",
+              "memory_type": "world_belief",
+              "salience": 0.81,
+              "source_fact_id": "fact_mayor_relief_decision",
+              "source_record_id": null,
+              "source_secret_id": null,
+              "subjective_content": "我仍相信那次秘密采购在当时避免了更大的医疗伤亡，但公开方式会决定它是否摧毁议事会。",
+              "supporting_memory_ids": [
+                "mem_mayor_relief_choice"
+              ],
+              "truth_scope": "subjective"
+            },
+            {
+              "access_mode": "participant",
+              "agent_id": "agent_mayor_zhou",
+              "character_id": "mayor_zhou",
+              "confidence": 1.0,
+              "contradicting_memory_ids": [],
+              "emotional_valence": -0.55,
+              "memory_id": "mem_mayor_relief_choice",
+              "memory_type": "episodic",
+              "salience": 0.92,
+              "source_fact_id": "fact_mayor_relief_decision",
+              "source_record_id": null,
+              "source_secret_id": null,
+              "subjective_content": "我记得自己签下那份没有公开审批的采购决定，当时没有更快的正式渠道。",
+              "supporting_memory_ids": [],
+              "truth_scope": "subjective"
+            },
+            {
+              "access_mode": "declared_initial_knowledge",
+              "agent_id": "agent_mayor_zhou",
+              "character_id": "mayor_zhou",
+              "confidence": 1.0,
+              "contradicting_memory_ids": [],
+              "emotional_valence": null,
+              "memory_id": "mem_secret_relief_funds_diverted_mayor_zhou",
+              "memory_type": "semantic",
+              "salience": 0.9,
+              "source_fact_id": null,
+              "source_record_id": null,
+              "source_secret_id": "relief_funds_diverted",
+              "subjective_content": "部分救济款被用于没有公开审批的紧急药品采购。",
+              "supporting_memory_ids": [],
+              "truth_scope": "subjective"
+            }
+          ],
+          "commitment": null,
+          "goals": [],
+          "initial_motivation_seed": [
+            "确认冬季前还有多少真实可用资源",
+            "判断救济款问题还能隐瞒多久"
+          ],
+          "persistent_emotion": {},
+          "plan": null,
+          "relationship_cognition": {}
+        },
+        "role_tier": "core"
+      },
+      "agent_smuggler_chen": {
+        "agent_id": "agent_smuggler_chen",
+        "agent_soul": {
+          "agent_id": "agent_smuggler_chen",
+          "character_id": "smuggler_chen",
+          "core_beliefs": [
+            "正式规则失效时人情网络才是实际秩序",
+            "欠下的救命人情不能只用钱结清"
+          ],
+          "core_desires": [
+            "为夜潮成员换来合法生存空间"
+          ],
+          "core_drives": [
+            "保持路线可用",
+            "证明夜潮网络对灰港有价值"
+          ],
+          "core_fears": [
+            "网络被一次性清算",
+            "自己人被当成可牺牲品"
+          ],
+          "core_values": [
+            "自由",
+            "互惠",
+            "保护自己人"
+          ],
+          "decision_biases": [
+            "机会窗口短时倾向先行动后谈判",
+            "对制度承诺保持低信任"
+          ],
+          "deep_attachments": [
+            "夜潮成员",
+            "旧港"
+          ],
+          "identity_narrative": "我不是来维持漂亮规则的，我负责让真实的人在规则失效时还有路走。",
+          "moral_boundaries": [
+            "不主动出卖已经履行承诺的伙伴"
+          ],
+          "soul_version": 1,
+          "source": "blueprint_agent_soul_seed",
+          "temperament": [
+            "机敏",
+            "记恩",
+            "高风险偏好"
+          ],
+          "truth_scope": "subjective"
+        },
+        "character_id": "smuggler_chen",
+        "dynamic_state": {
+          "activation_plan": null,
+          "agent_memory": [
+            {
+              "access_mode": "participant",
+              "agent_id": "agent_smuggler_chen",
+              "character_id": "smuggler_chen",
+              "confidence": 1.0,
+              "contradicting_memory_ids": [],
+              "emotional_valence": 0.35,
+              "memory_id": "mem_chen_delivery",
+              "memory_type": "episodic",
+              "salience": 0.73,
+              "source_fact_id": "fact_chen_saved_clinic",
+              "source_record_id": null,
+              "source_secret_id": null,
+              "subjective_content": "那次正式渠道断掉时，是我把急救药送进诊所；徐澄没有问货从哪里来，先去救人。",
+              "supporting_memory_ids": [],
+              "truth_scope": "subjective"
+            },
+            {
+              "access_mode": "declared_initial_knowledge",
+              "agent_id": "agent_smuggler_chen",
+              "character_id": "smuggler_chen",
+              "confidence": 1.0,
+              "contradicting_memory_ids": [],
+              "emotional_valence": null,
+              "memory_id": "mem_secret_relief_funds_diverted_smuggler_chen",
+              "memory_type": "semantic",
+              "salience": 0.9,
+              "source_fact_id": null,
+              "source_record_id": null,
+              "source_secret_id": "relief_funds_diverted",
+              "subjective_content": "部分救济款被用于没有公开审批的紧急药品采购。",
+              "supporting_memory_ids": [],
+              "truth_scope": "subjective"
+            }
+          ],
+          "commitment": null,
+          "goals": [],
+          "initial_motivation_seed": [],
+          "persistent_emotion": {},
+          "plan": null,
+          "relationship_cognition": {}
+        },
+        "role_tier": "core"
+      }
+    },
+    "run_id": "gray-harbor-rerun-20260901",
+    "tick_id": 0
+  },
+  "world_state": {
+    "blueprint_ref": {
+      "hash": "89d629fb5e2281fd3d45acefe5c518d39aaddb1e7c6a51f01321776255157b96",
+      "id": "gray_harbor",
+      "schema_version": "0.3",
+      "version": "0.3.0"
+    },
+    "entities": {
+      "clinic": {
+        "description": "唯一具备复杂手术和药品储藏能力的诊所。",
+        "entity_type": "location",
+        "id": "clinic",
+        "name": "灰港诊所",
+        "parent_id": "gray_harbor",
+        "properties": {}
+      },
+      "council_hall": {
+        "description": "行政、档案与配给决策中心。",
+        "entity_type": "location",
+        "id": "council_hall",
+        "name": "议事厅",
+        "parent_id": "gray_harbor",
+        "properties": {}
+      },
+      "deep_mine": {
+        "description": "地质状况已经明显恶化的深层矿区。",
+        "entity_type": "location",
+        "id": "deep_mine",
+        "name": "深层矿井",
+        "parent_id": "mine_district",
+        "properties": {}
+      },
+      "doctor_xu": {
+        "biography_fact_ids": [
+          "fact_chen_saved_clinic",
+          "fact_xu_triage_winter"
+        ],
+        "capabilities": [
+          "medicine",
+          "triage",
+          "evidence_testing",
+          "cross_faction_access"
+        ],
+        "entity_type": "character",
+        "faction_id": "tide_sanctuary",
+        "id": "doctor_xu",
+        "identity": "灰港唯一能独立完成复杂手术的医生，可跨多个阵营行动。",
+        "location_id": "clinic",
+        "name": "徐澄",
+        "occupation": "doctor",
+        "properties": {
+          "health": 73,
+          "money": 55,
+          "status": "alive"
+        }
+      },
+      "engineer_lin": {
+        "biography_fact_ids": [
+          "fact_lin_mine_discovery"
+        ],
+        "capabilities": [
+          "engineering",
+          "risk_assessment",
+          "technical_evidence"
+        ],
+        "entity_type": "character",
+        "faction_id": "miners_guild",
+        "id": "engineer_lin",
+        "identity": "灰港总工程师，负责矿井安全、产量报告和结构评估。",
+        "location_id": "deep_mine",
+        "name": "林栖",
+        "occupation": "chief_engineer",
+        "properties": {
+          "health": 76,
+          "money": 90,
+          "status": "alive"
+        }
+      },
+      "gray_harbor": {
+        "description": "依靠煤矿与港口转运维持的封闭港镇。",
+        "entity_type": "settlement",
+        "id": "gray_harbor",
+        "name": "灰港镇",
+        "parent_id": "gray_harbor_world",
+        "properties": {}
+      },
+      "gray_harbor_world": {
+        "description": "被严冬交通条件逐步隔绝的北方沿海区域。",
+        "entity_type": "world",
+        "id": "gray_harbor_world",
+        "name": "灰港世界",
+        "parent_id": null,
+        "properties": {}
+      },
+      "harbor_population": {
+        "entity_type": "aggregate_population",
+        "id": "harbor_population",
+        "location_id": "gray_harbor",
+        "population": 4321,
+        "properties": {
+          "public_fear": 0.31
+        }
+      },
+      "mayor_zhou": {
+        "biography_fact_ids": [
+          "fact_mayor_relief_decision"
+        ],
+        "capabilities": [
+          "negotiation",
+          "administration",
+          "permit_control"
+        ],
+        "entity_type": "character",
+        "faction_id": "town_council",
+        "id": "mayor_zhou",
+        "identity": "灰港市长兼议事会主持人，擅长维持脆弱联盟。",
+        "location_id": "council_hall",
+        "name": "周砺",
+        "occupation": "mayor",
+        "properties": {
+          "health": 82,
+          "money": 140,
+          "status": "alive"
+        }
+      },
+      "mine_district": {
+        "description": "矿工家庭与矿井入口所在区域。",
+        "entity_type": "location",
+        "id": "mine_district",
+        "name": "矿工区",
+        "parent_id": "gray_harbor",
+        "properties": {}
+      },
+      "miners_guild": {
+        "entity_type": "faction",
+        "id": "miners_guild",
+        "identity": "由矿工家庭、维修工和仓库人员组成的互助与谈判组织。",
+        "name": "矿工互助会",
+        "objectives": [
+          "保护矿工家庭",
+          "避免无补偿停矿"
+        ],
+        "properties": {},
+        "resources": [
+          "labor",
+          "mine_knowledge",
+          "solidarity"
+        ]
+      },
+      "night_tide_network": {
+        "entity_type": "faction",
+        "id": "night_tide_network",
+        "identity": "利用旧港与私人船只维持非正式贸易的松散网络。",
+        "name": "夜潮网络",
+        "objectives": [
+          "保持隐秘贸易路线",
+          "保护网络成员"
+        ],
+        "properties": {},
+        "resources": [
+          "boats",
+          "contacts",
+          "covert_trade"
+        ]
+      },
+      "old_port": {
+        "description": "正式贸易与夜间非正式交易交叠的港区。",
+        "entity_type": "location",
+        "id": "old_port",
+        "name": "旧港区",
+        "parent_id": "gray_harbor",
+        "properties": {}
+      },
+      "smuggler_chen": {
+        "biography_fact_ids": [
+          "fact_mayor_relief_decision",
+          "fact_chen_saved_clinic"
+        ],
+        "capabilities": [
+          "covert_trade",
+          "route_knowledge",
+          "bargaining"
+        ],
+        "entity_type": "character",
+        "faction_id": "night_tide_network",
+        "id": "smuggler_chen",
+        "identity": "夜潮网络主要协调者，熟悉港区、外部联系人和非正式贸易。",
+        "location_id": "old_port",
+        "name": "陈默潮",
+        "occupation": "network_coordinator",
+        "properties": {
+          "health": 88,
+          "money": 210,
+          "status": "alive"
+        }
+      },
+      "tide_sanctuary": {
+        "entity_type": "faction",
+        "id": "tide_sanctuary",
+        "identity": "承担救济、照护和公共调解的地方机构。",
+        "name": "潮汐圣所",
+        "objectives": [
+          "保护弱势居民",
+          "维持公共救济"
+        ],
+        "properties": {},
+        "resources": [
+          "volunteers",
+          "trust",
+          "kitchens"
+        ]
+      },
+      "town_council": {
+        "entity_type": "faction",
+        "id": "town_council",
+        "identity": "维持行政秩序、配给制度与对外信用的正式治理机构。",
+        "name": "灰港议事会",
+        "objectives": [
+          "避免秩序崩溃",
+          "保持配给系统运作"
+        ],
+        "properties": {},
+        "resources": [
+          "records",
+          "permits",
+          "legitimacy"
+        ]
+      }
+    },
+    "globals": {
+      "contaminated_batch_real": true,
+      "council_legitimacy": 0.58,
+      "public_fear": 0.31,
+      "public_order": 0.66,
+      "winter_onset_world_time_seconds": 1819667
+    },
+    "relationships": [
+      {
+        "from": "mayor_zhou",
+        "intensity": 0.42,
+        "to": "engineer_lin",
+        "type": "trusts"
+      },
+      {
+        "from": "doctor_xu",
+        "intensity": 0.64,
+        "to": "smuggler_chen",
+        "type": "owes"
+      }
+    ],
+    "resources": {
+      "coal": {
+        "amount": 410,
+        "unit": "heating_unit"
+      },
+      "food": {
+        "amount": 257,
+        "unit": "ration_crate"
+      },
+      "medicine": {
+        "amount": 48,
+        "unit": "treatment_unit"
+      }
+    },
+    "routes": [
+      {
+        "bidirectional": true,
+        "fixed_at": "AUTHORING",
+        "from": "council_hall",
+        "id": "route_council_port",
+        "to": "old_port",
+        "travel_duration_seconds": 900
+      },
+      {
+        "bidirectional": true,
+        "fixed_at": "AUTHORING",
+        "from": "council_hall",
+        "id": "route_council_mine",
+        "to": "mine_district",
+        "travel_duration_seconds": 1800
+      },
+      {
+        "bidirectional": true,
+        "fixed_at": "AUTHORING",
+        "from": "mine_district",
+        "id": "route_mine_deep",
+        "to": "deep_mine",
+        "travel_duration_seconds": 1200
+      },
+      {
+        "bidirectional": true,
+        "fixed_at": "AUTHORING",
+        "from": "council_hall",
+        "id": "route_council_clinic",
+        "to": "clinic",
+        "travel_duration_seconds": 900
+      },
+      {
+        "bidirectional": true,
+        "fixed_at": "AUTHORING",
+        "from": "old_port",
+        "id": "route_port_clinic",
+        "to": "clinic",
+        "travel_duration_seconds": 1200
+      }
+    ],
+    "run_id": "gray-harbor-rerun-20260901",
+    "tick_id": 0,
+    "world_time_second": 0
+  }
+}

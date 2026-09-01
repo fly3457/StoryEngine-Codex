@@ -1,0 +1,335 @@
+{
+  "reservations": [
+    {
+      "id": "agent_doctor_xu",
+      "kind": "agent",
+      "owner": "doctor_xu",
+      "source_path": "population.key_characters[3].agent_binding.agent_id"
+    },
+    {
+      "id": "agent_engineer_lin",
+      "kind": "agent",
+      "owner": "engineer_lin",
+      "source_path": "population.key_characters[1].agent_binding.agent_id"
+    },
+    {
+      "id": "agent_mayor_zhou",
+      "kind": "agent",
+      "owner": "mayor_zhou",
+      "source_path": "population.key_characters[0].agent_binding.agent_id"
+    },
+    {
+      "id": "agent_smuggler_chen",
+      "kind": "agent",
+      "owner": "smuggler_chen",
+      "source_path": "population.key_characters[2].agent_binding.agent_id"
+    },
+    {
+      "id": "anchor_winter_shortage",
+      "kind": "anchor",
+      "owner": "world",
+      "source_path": "narrative.anchors[0]"
+    },
+    {
+      "id": "belief_mayor_secret_purchase_necessary",
+      "kind": "initial_memory_seed",
+      "owner": "world",
+      "source_path": "population.initial_memory_seeds[1]"
+    },
+    {
+      "id": "clinic",
+      "kind": "world_node",
+      "owner": "world",
+      "source_path": "world_graph.nodes[6]"
+    },
+    {
+      "id": "conflict_council_mine",
+      "kind": "conflict",
+      "owner": "world",
+      "source_path": "narrative.conflict_topology[0]"
+    },
+    {
+      "id": "conflict_council_night",
+      "kind": "conflict",
+      "owner": "world",
+      "source_path": "narrative.conflict_topology[1]"
+    },
+    {
+      "id": "contaminated_batch_real",
+      "kind": "genesis_variable",
+      "owner": "world",
+      "source_path": "genesis.variables[2]"
+    },
+    {
+      "id": "council_hall",
+      "kind": "world_node",
+      "owner": "world",
+      "source_path": "world_graph.nodes[2]"
+    },
+    {
+      "id": "deep_mine",
+      "kind": "world_node",
+      "owner": "world",
+      "source_path": "world_graph.nodes[5]"
+    },
+    {
+      "id": "doctor_xu",
+      "kind": "character",
+      "owner": "world",
+      "source_path": "population.key_characters[3]"
+    },
+    {
+      "id": "ending_collapse",
+      "kind": "end_condition",
+      "owner": "world",
+      "source_path": "narrative.end_conditions[2]"
+    },
+    {
+      "id": "ending_orderly_exodus",
+      "kind": "end_condition",
+      "owner": "world",
+      "source_path": "narrative.end_conditions[1]"
+    },
+    {
+      "id": "ending_stable_reform",
+      "kind": "end_condition",
+      "owner": "world",
+      "source_path": "narrative.end_conditions[0]"
+    },
+    {
+      "id": "engineer_lin",
+      "kind": "character",
+      "owner": "world",
+      "source_path": "population.key_characters[1]"
+    },
+    {
+      "id": "fact_chen_saved_clinic",
+      "kind": "biography_fact",
+      "owner": "world",
+      "source_path": "population.biography_facts[2]"
+    },
+    {
+      "id": "fact_lin_mine_discovery",
+      "kind": "biography_fact",
+      "owner": "world",
+      "source_path": "population.biography_facts[1]"
+    },
+    {
+      "id": "fact_mayor_relief_decision",
+      "kind": "biography_fact",
+      "owner": "world",
+      "source_path": "population.biography_facts[0]"
+    },
+    {
+      "id": "fact_xu_triage_winter",
+      "kind": "biography_fact",
+      "owner": "world",
+      "source_path": "population.biography_facts[3]"
+    },
+    {
+      "id": "gray_harbor",
+      "kind": "world_node",
+      "owner": "world",
+      "source_path": "world_graph.nodes[1]"
+    },
+    {
+      "id": "gray_harbor_world",
+      "kind": "world_node",
+      "owner": "world",
+      "source_path": "world_graph.nodes[0]"
+    },
+    {
+      "id": "harbor_population",
+      "kind": "aggregate_population",
+      "owner": "world",
+      "source_path": "population.aggregate_groups[0]"
+    },
+    {
+      "id": "information_pressure",
+      "kind": "pressure_channel",
+      "owner": "world",
+      "source_path": "narrative.pressure_channels[1]"
+    },
+    {
+      "id": "information_pressure_rumor",
+      "kind": "pressure_manifestation",
+      "owner": "world",
+      "source_path": "narrative.pressure_channels[1].manifestations[0]"
+    },
+    {
+      "id": "initial_food_units",
+      "kind": "genesis_variable",
+      "owner": "world",
+      "source_path": "genesis.variables[1]"
+    },
+    {
+      "id": "legitimacy_pressure",
+      "kind": "pressure_channel",
+      "owner": "world",
+      "source_path": "narrative.pressure_channels[2]"
+    },
+    {
+      "id": "legitimacy_pressure_compliance",
+      "kind": "pressure_manifestation",
+      "owner": "world",
+      "source_path": "narrative.pressure_channels[2].manifestations[0]"
+    },
+    {
+      "id": "mayor_zhou",
+      "kind": "character",
+      "owner": "world",
+      "source_path": "population.key_characters[0]"
+    },
+    {
+      "id": "mem_chen_delivery",
+      "kind": "initial_memory_seed",
+      "owner": "world",
+      "source_path": "population.initial_memory_seeds[3]"
+    },
+    {
+      "id": "mem_lin_discovery",
+      "kind": "initial_memory_seed",
+      "owner": "world",
+      "source_path": "population.initial_memory_seeds[2]"
+    },
+    {
+      "id": "mem_mayor_relief_choice",
+      "kind": "initial_memory_seed",
+      "owner": "world",
+      "source_path": "population.initial_memory_seeds[0]"
+    },
+    {
+      "id": "mem_xu_delivery",
+      "kind": "initial_memory_seed",
+      "owner": "world",
+      "source_path": "population.initial_memory_seeds[4]"
+    },
+    {
+      "id": "mem_xu_winter_triage",
+      "kind": "initial_memory_seed",
+      "owner": "world",
+      "source_path": "population.initial_memory_seeds[5]"
+    },
+    {
+      "id": "mine_district",
+      "kind": "world_node",
+      "owner": "world",
+      "source_path": "world_graph.nodes[4]"
+    },
+    {
+      "id": "mine_exhaustion",
+      "kind": "secret",
+      "owner": "world",
+      "source_path": "narrative.secrets[0]"
+    },
+    {
+      "id": "miners_guild",
+      "kind": "faction",
+      "owner": "world",
+      "source_path": "factions[1]"
+    },
+    {
+      "id": "night_tide_network",
+      "kind": "faction",
+      "owner": "world",
+      "source_path": "factions[3]"
+    },
+    {
+      "id": "old_port",
+      "kind": "world_node",
+      "owner": "world",
+      "source_path": "world_graph.nodes[3]"
+    },
+    {
+      "id": "preserve_or_evacuate_gray_harbor",
+      "kind": "mission_seed",
+      "owner": "world",
+      "source_path": "narrative.mission_seeds[0]"
+    },
+    {
+      "id": "relief_funds_diverted",
+      "kind": "secret",
+      "owner": "world",
+      "source_path": "narrative.secrets[1]"
+    },
+    {
+      "id": "resource_pressure",
+      "kind": "pressure_channel",
+      "owner": "world",
+      "source_path": "narrative.pressure_channels[0]"
+    },
+    {
+      "id": "resource_pressure_market_price",
+      "kind": "pressure_manifestation",
+      "owner": "world",
+      "source_path": "narrative.pressure_channels[0].manifestations[1]"
+    },
+    {
+      "id": "resource_pressure_ration_reduction",
+      "kind": "pressure_manifestation",
+      "owner": "world",
+      "source_path": "narrative.pressure_channels[0].manifestations[0]"
+    },
+    {
+      "id": "route_council_clinic",
+      "kind": "route",
+      "owner": "world",
+      "source_path": "world_graph.routes[3]"
+    },
+    {
+      "id": "route_council_mine",
+      "kind": "route",
+      "owner": "world",
+      "source_path": "world_graph.routes[1]"
+    },
+    {
+      "id": "route_council_port",
+      "kind": "route",
+      "owner": "world",
+      "source_path": "world_graph.routes[0]"
+    },
+    {
+      "id": "route_mine_deep",
+      "kind": "route",
+      "owner": "world",
+      "source_path": "world_graph.routes[2]"
+    },
+    {
+      "id": "route_port_clinic",
+      "kind": "route",
+      "owner": "world",
+      "source_path": "world_graph.routes[4]"
+    },
+    {
+      "id": "slot_dock_workers",
+      "kind": "supporting_character_slot",
+      "owner": "world",
+      "source_path": "population.supporting_character_slots[0]"
+    },
+    {
+      "id": "smuggler_chen",
+      "kind": "character",
+      "owner": "world",
+      "source_path": "population.key_characters[2]"
+    },
+    {
+      "id": "tide_sanctuary",
+      "kind": "faction",
+      "owner": "world",
+      "source_path": "factions[2]"
+    },
+    {
+      "id": "town_council",
+      "kind": "faction",
+      "owner": "world",
+      "source_path": "factions[0]"
+    },
+    {
+      "id": "winter_onset_world_time_seconds",
+      "kind": "genesis_variable",
+      "owner": "world",
+      "source_path": "genesis.variables[0]"
+    }
+  ],
+  "run_id": "gray-harbor-rerun-20260901"
+}

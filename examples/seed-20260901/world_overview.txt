@@ -1,0 +1,32 @@
+World 世界: gray_harbor@0.3.0 seed=20260901
+  World nodes 世界节点=7 routes 路线=5
+  Factions 势力=4 aggregate populations 聚合人口=1 characters 角色=4
+  Resources 资源=3 globals 全局状态=5 relationships 关系=2
+  Narrative 叙事: missions 使命=1 conflicts 冲突=2 secrets 秘密=2 anchors 锚点=1 pressures 压力=3 endings 终局=3
+  World laws 世界法则 sections=economy,information,mortality,space,time
+  Materialization 实体化 enabled=False | Lifecycle 生命周期 rerun=True reincarnation=False
+  Global reservations 全局预留=55
+
+Locations / World Nodes 地点与世界节点:
+  - gray_harbor_world [world] 灰港世界
+  - gray_harbor [settlement] 灰港镇
+  - council_hall [location] 议事厅
+  - old_port [location] 旧港区
+  - mine_district [location] 矿工区
+  - deep_mine [location] 深层矿井
+  - clinic [location] 灰港诊所
+Routes 路线:
+  - route_council_port: council_hall -> old_port duration=900s bidirectional=True
+  - route_council_mine: council_hall -> mine_district duration=1800s bidirectional=True
+  - route_mine_deep: mine_district -> deep_mine duration=1200s bidirectional=True
+  - route_council_clinic: council_hall -> clinic duration=900s bidirectional=True
+  - route_port_clinic: old_port -> clinic duration=1200s bidirectional=True
+Factions 势力:
+  - town_council 灰港议事会: 维持行政秩序、配给制度与对外信用的正式治理机构。
+  - miners_guild 矿工互助会: 由矿工家庭、维修工和仓库人员组成的互助与谈判组织。
+  - tide_sanctuary 潮汐圣所: 承担救济、照护和公共调解的地方机构。
+  - night_tide_network 夜潮网络: 利用旧港与私人船只维持非正式贸易的松散网络。
+Resources 资源:
+  - coal: {'amount': 410, 'unit': 'heating_unit'}
+  - food: {'amount': 257, 'unit': 'ration_crate'}
+  - medicine: {'amount': 48, 'unit': 'treatment_unit'}

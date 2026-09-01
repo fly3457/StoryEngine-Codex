@@ -3,6 +3,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const { ROOT, read, write, tempProject, runBash, success, projectTitle, fixedDate } = require('./helpers.cjs');
+const { blankProject, blankAct } = require('./fixtures.cjs');
 
 const continuityFiles = ['tracker', 'threads', 'changelog'].map(n => 'continuity/' + n + '.md');
 function seedChapters(root) {
@@ -29,7 +30,7 @@ test('init creates missing directories/acts and is idempotent for existing Canon
   fs.unlinkSync(path.join(root, 'outline/act-2.md'));
   success(runBash(root, 'init-project.sh', ['First Title']));
   assert.ok(fs.statSync(path.join(root, 'drafts')).isDirectory());
-  assert.equal(read('outline/act-2.md', root), read('outline/act-2.md', ROOT));
+  assert.equal(read('outline/act-2.md', root), blankAct(2));
   write(root, 'outline/act-2.md', 'Approved act content — preserve me.\n');
   const project = read('PROJECT.md', root);
   success(runBash(root, 'init-project.sh', ['Do Not Replace Existing Title']));
@@ -38,13 +39,35 @@ test('init creates missing directories/acts and is idempotent for existing Canon
 });
 test('init supports CRLF templates and rejects multiline title changes', t => {
   const root = tempProject(t);
-  write(root, 'PROJECT.md', read('PROJECT.md').replace(/\n/g, '\r\n'));
+  write(root, 'PROJECT.md', blankProject.replace(/\n/g, '\r\n'));
   success(runBash(root, 'init-project.sh', ['CRLF & Title']));
   assert.ok(read('PROJECT.md', root).includes('## Working Title\nCRLF & Title\n'));
   const before = fs.readFileSync(path.join(root, 'PROJECT.md'));
   const failed = runBash(root, 'init-project.sh', ['First\nSecond']);
   assert.notEqual(failed.status, 0);
   assert.deepEqual(fs.readFileSync(path.join(root, 'PROJECT.md')), before);
+});
+test('utility fixtures stay blank after the source story is initialized and outlined', t => {
+  const source = tempProject(t);
+  success(runBash(source, 'init-project.sh', ['Active Story Title']));
+  const activeFiles = ['outline/act-2.md', 'world/rules.md', 'continuity/tracker.md',
+    'characters/active-character.md', 'drafts/chapter-01.md'];
+  for (const file of activeFiles) write(source, file, 'ACTIVE_STORY_CANON_MUST_NOT_SEED_TESTS\n');
+  const before = ['PROJECT.md', ...activeFiles].map(file => read(file, source));
+  write(source, 'scripts/word-count.sh', read('scripts/word-count.sh', source) + '\n# CURRENT_TOOL_COPY\n');
+
+  const root = tempProject(t, true, source);
+  assert.equal(read('PROJECT.md', root), blankProject);
+  assert.equal(read('outline/act-2.md', root), blankAct(2));
+  for (const file of ['world/rules.md', 'continuity/tracker.md']) {
+    assert.doesNotMatch(read(file, root), /ACTIVE_STORY_CANON_MUST_NOT_SEED_TESTS/);
+  }
+  assert.ok(!fs.existsSync(path.join(root, 'characters/active-character.md')));
+  assert.deepEqual(fs.readdirSync(path.join(root, 'drafts')), []);
+  assert.match(read('scripts/word-count.sh', root), /CURRENT_TOOL_COPY/);
+  success(runBash(root, 'init-project.sh', ['Independent Test Title']));
+  assert.ok(read('PROJECT.md', root).includes('## Working Title\nIndependent Test Title\n'));
+  assert.deepEqual(['PROJECT.md', ...activeFiles].map(file => read(file, source)), before);
 });
 test('scripts refuse to initialize or operate from an unrelated empty directory', t => {
   const root = tempProject(t, false);

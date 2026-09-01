@@ -8,7 +8,10 @@ Phase 4 begins when the user approves the character files.
 
 Read PROJECT.md, all world/ and characters/ files, outline/structure.md,
 outline/scenes/_TEMPLATE.md, existing act/scene files, and continuity tracker,
-threads, and changelog. Record missing reads. Preserve confirmed story decisions.
+threads, and changelog. Read STORY_SEED.md when it exists for its mission, conflict
+topology, pressures, reveal paths, and candidate endings; these remain planning inputs,
+not accomplished facts or prior approval. Record missing reads. Preserve confirmed
+story decisions.
 
 ### Step 2: Build Structure and Acts
 

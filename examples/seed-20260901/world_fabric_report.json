@@ -1,0 +1,103 @@
+{
+  "agent_state_hash": "9ebbb7927a28898f670ee936f4588a742d44c8cfa2f69e36ac7f41ce89fb8dac",
+  "blueprint": {
+    "hash": "89d629fb5e2281fd3d45acefe5c518d39aaddb1e7c6a51f01321776255157b96",
+    "id": "gray_harbor",
+    "version": "0.3.0"
+  },
+  "blueprint_validation": {
+    "errors": [],
+    "ok": true,
+    "warnings": []
+  },
+  "components": [
+    {
+      "cn": "世界创作",
+      "component": "WorldAuthoring",
+      "evidence": [
+        "brief/template",
+        "Draft/Critic/Repair prompts"
+      ],
+      "note": "AI Drafting AI蓝图起草由外部 ChatGPT / Codex / LLM 执行；本工具不直接调用 LLM。",
+      "status": "workflow_implemented"
+    },
+    {
+      "cn": "世界蓝图系统",
+      "component": "BlueprintSystem",
+      "evidence": [
+        "Schema validation",
+        "Semantic validation",
+        "Compile lock",
+        "GlobalReservationRegistry"
+      ],
+      "status": "implemented"
+    },
+    {
+      "cn": "世界出生系统",
+      "component": "GenesisSystem",
+      "evidence": [
+        "Seeded variables",
+        "WorldManifest",
+        "Genesis validation",
+        "Tick0 projections",
+        "Journal"
+      ],
+      "status": "implemented"
+    },
+    {
+      "cn": "角色出生",
+      "component": "CharacterGenesis",
+      "evidence": [
+        "CharacterManifest",
+        "AgentBinding",
+        "AgentSoul",
+        "Initial AgentMemory"
+      ],
+      "status": "implemented"
+    },
+    {
+      "cn": "世界实体化系统",
+      "component": "MaterializationSystem",
+      "evidence": [
+        "MaterializationPolicy"
+      ],
+      "status": "policy_only"
+    },
+    {
+      "cn": "运行重构系统",
+      "component": "RunReconstructionSystem",
+      "evidence": [
+        "NextRun provenance",
+        "new Seed Genesis"
+      ],
+      "note": "Reincarnation 转生仅在 LifecyclePolicy 开启并提供明确映射后执行；本样例未启用。",
+      "status": "minimal_rerun"
+    }
+  ],
+  "counts": {
+    "aggregate_populations": 1,
+    "anchors": 1,
+    "characters": 4,
+    "conflicts": 2,
+    "end_conditions": 3,
+    "factions": 4,
+    "global_reservations": 55,
+    "global_state_keys": 5,
+    "missions": 1,
+    "pressure_channels": 3,
+    "resources": 3,
+    "routes": 5,
+    "secrets": 2,
+    "world_nodes": 7
+  },
+  "fabric_ok": true,
+  "genesis_validation": {
+    "errors": [],
+    "ok": true,
+    "warnings": []
+  },
+  "report_version": "0.3",
+  "run_config_hash": "0e6994442c53ff4f01661037b191b15972e5256fc8179a69cb555e5cef17ba63",
+  "run_id": "gray-harbor-rerun-20260901",
+  "world_state_hash": "d7c976658f351f601d96853afc689ede95bdc42aebefa7ef2d647abceab00f74"
+}
